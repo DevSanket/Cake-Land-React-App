@@ -1,8 +1,9 @@
 import { createStore,applyMiddleware, combineReducers} from 'redux';
-import cartReducer from './Cart/cart.reducer';
-import userReducer from './User/user.reducer';
+import logger from 'redux-logger';
+import rootReducer from './root-reducer';
 
-export default combineReducers({
-    user:userReducer,
-    cart:cartReducer
-})
+const middlewares = [logger];
+const store = createStore(rootReducer,applyMiddleware(...middlewares))
+
+export default store;
+

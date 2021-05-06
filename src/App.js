@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router';
+import { Redirect, Route, Switch } from 'react-router';
 import './App.css';
 import HomePage from './Pages/HomePage/HomePage';
 import ShopPage from './Pages/Shop/Shop';
@@ -6,6 +6,8 @@ import SignInAndSignUp from './Pages/Sign-in-and-Sign-up/Sign-in-and-Sign-up';
 import React, { Component } from 'react';
 import { auth, createUserProfileDocument } from './Firebase/firebase.util';
 import Header from './Components/Header/Header';
+import { connect } from 'react-redux';
+import { setCurrentUser } from './Redux/User/user.actions';
 
 class App extends Component {
   constructor(){
@@ -19,23 +21,21 @@ class App extends Component {
 
 
   componentDidMount(){
+    const {setCurrentUser } = this.props;
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       // this.setState({currentUser : user});
       // createUserProfileDocument(user);
       if(userAuth){
         const userRef = await createUserProfileDocument(userAuth);
         userRef.onSnapshot(snapshot => {
-          this.setState({
-            currentUser : {
-              id: snapshot.id,
+          setCurrentUser({
+            id:snapshot.id,
             ...snapshot.data()
-            }
-          });
-          console.log(this.state);
+          })
         });
         
       }
-      this.setState({currentUser:userAuth});
+      setCurrentUser(userAuth);
 
     });
    
@@ -54,12 +54,28 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={HomePage}/>
             <Route path="/shop" component={ShopPage}/>
-            <Route path="/signin" component={SignInAndSignUp}/>
+            <Route  exact path='/signin' render={
+            () => 
+            this.props.currentUser ? (
+            <Redirect to="/"/>
+            ) :(<SignInAndSignUp />)
+          }/>
           </Switch>
       </div>
       
      );
   }
 }
+
+//To get the current user of state
+const mapStateProps = ({user}) => ({
+  currentUser : user.currentUser
+})
+
+//using for set State of current user in Redux
+const mapDispatchProps = dispatch => ({
+  setCurrentUser : user => dispatch(setCurrentUser(user))
+})
+
  
-export default App;
+export default connect(mapStateProps,mapDispatchProps)(App);
