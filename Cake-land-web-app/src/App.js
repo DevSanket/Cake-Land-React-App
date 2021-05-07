@@ -8,6 +8,10 @@ import { auth, createUserProfileDocument } from './Firebase/firebase.util';
 import Header from './Components/Header/Header';
 import { connect } from 'react-redux';
 import { setCurrentUser } from './Redux/User/user.actions';
+import {createStructuredSelector} from 'reselect'; 
+import { selectCurrentUser } from './Redux/User/user.selector';
+import CheckoutPage from './Pages/Checkout/Checkout';
+
 
 class App extends Component {
   constructor(){
@@ -60,6 +64,7 @@ class App extends Component {
             <Redirect to="/"/>
             ) :(<SignInAndSignUp />)
           }/>
+          <Route exact path="/checkout" component={CheckoutPage}/>
           </Switch>
       </div>
       
@@ -68,8 +73,8 @@ class App extends Component {
 }
 
 //To get the current user of state
-const mapStateProps = ({user}) => ({
-  currentUser : user.currentUser
+const mapStateProps = createStructuredSelector({
+  currentUser : selectCurrentUser
 })
 
 //using for set State of current user in Redux
