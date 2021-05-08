@@ -95,6 +95,7 @@ export const SHOP_DATA = [
                 imageUrl:'https://i.pinimg.com/originals/07/8a/71/078a71ab3b4c62a908a8f211681aa932.jpg',
                 price:650
             },
+        
         ]
     },
     {
@@ -508,3 +509,4 @@ export const SHOP_DATA = [
     },
 	
 ]
+
