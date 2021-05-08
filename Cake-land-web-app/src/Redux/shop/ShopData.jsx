@@ -1,5 +1,5 @@
-export const SHOP_DATA = [
-    {
+export const SHOP_DATA = {
+   cakes : {
         id:1,
         title:'Cakes',
         routeName:'cakes',
@@ -98,7 +98,7 @@ export const SHOP_DATA = [
         
         ]
     },
-    {
+   cupcakes : {
         id: 2,
         title:'Cupcake',
         routeName:'cupcake',
@@ -169,7 +169,7 @@ export const SHOP_DATA = [
         ]
 
     },
-    {
+    pastries : {
         id:3,
         title:'Pastries',
         routeName:'pastries',
@@ -238,7 +238,7 @@ export const SHOP_DATA = [
 
         ]
     },
-    {
+   swiss_roll : {
         id:4,
         title:'Swiss_Roll',
         routeName:'swiss_roll',
@@ -307,7 +307,7 @@ export const SHOP_DATA = [
 
         ]
     },
-    {
+    muffins : {
         id:5,
         title:'Muffins',
         routeName:'muffins',
@@ -370,7 +370,7 @@ export const SHOP_DATA = [
             
         ]
     },
-    {
+    donuts : {
         id:6,
         title:'Donuts',
         routeName:'donuts',
@@ -440,7 +440,7 @@ export const SHOP_DATA = [
 
         ]
     },
-	{
+	desserts : {
         id:7,
         title:'Desserts',
         routeName:'desserts',
@@ -508,5 +508,5 @@ export const SHOP_DATA = [
         ]
     },
 	
-]
+}
 
