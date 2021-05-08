@@ -6,6 +6,7 @@ const INITIAL_STATE = {
     cartItems : [] // used for adding cartItems adding and removing state
 };
 
+//used to get exact type of operation need to perform
 const cartReducer = (state = INITIAL_STATE,action) => {
     switch(action.type){
         case CartActionTypes.TOGGLE_CART_HIDDEN:

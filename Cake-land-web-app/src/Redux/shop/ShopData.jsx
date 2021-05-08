@@ -239,7 +239,7 @@ export const SHOP_DATA = [
     },
     {
         id:4,
-        title:'Swiss Roll',
+        title:'Swiss_Roll',
         routeName:'swiss_roll',
         items: [
 		{

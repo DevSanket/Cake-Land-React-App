@@ -21,6 +21,8 @@ const CheckoutItem = ({cartItem,clearItem,addItem,removeItem}) => {
     </div>
 )}
 
+
+//To Create Update for Adding Item Incresing the value of Quantity of item and Removing it
 const mapDispatchToProps = dispatch => ({
     clearItem : item => dispatch(clearItemFromCart(item)),
     addItem : item => dispatch(addItem(item)),

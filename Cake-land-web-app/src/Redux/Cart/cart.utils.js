@@ -16,7 +16,7 @@ export const addItemToCart = (cartItems,cartItemToAdd) =>{
 
 } 
 
-
+// Removing Item from a cart
 export const removeItemFromCart = (cartItems,cartItemToRemove) => {
 
     const existingCartItem = cartItems.find(
