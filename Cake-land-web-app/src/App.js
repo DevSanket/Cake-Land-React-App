@@ -4,14 +4,14 @@ import HomePage from './Pages/HomePage/HomePage';
 import ShopPage from './Pages/Shop/Shop';
 import SignInAndSignUp from './Pages/Sign-in-and-Sign-up/Sign-in-and-Sign-up';
 import React, { Component } from 'react';
-import { addCollectionAndDocuments, auth, createUserProfileDocument } from './Firebase/firebase.util';
+import { auth, createUserProfileDocument } from './Firebase/firebase.util';
 import Header from './Components/Header/Header';
 import { connect } from 'react-redux';
 import { setCurrentUser } from './Redux/User/user.actions';
 import {createStructuredSelector} from 'reselect'; 
 import { selectCurrentUser } from './Redux/User/user.selector';
 import CheckoutPage from './Pages/Checkout/Checkout';
-import { selectCollectionsForPreview } from './Redux/shop/shop.selector';
+
 
 
 class App extends Component {

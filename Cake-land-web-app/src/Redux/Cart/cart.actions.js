@@ -14,6 +14,12 @@ export const addItem = item => ({
 });
 
 
+//Reset The values 
+export const ResetItems = item => ({
+    type:CartActionTypes.RESET_CART,
+    payload:item
+})
+
 
 //clearing Item from cart
 export const clearItemFromCart = item => ({
