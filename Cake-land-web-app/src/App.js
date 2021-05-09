@@ -4,13 +4,14 @@ import HomePage from './Pages/HomePage/HomePage';
 import ShopPage from './Pages/Shop/Shop';
 import SignInAndSignUp from './Pages/Sign-in-and-Sign-up/Sign-in-and-Sign-up';
 import React, { Component } from 'react';
-import { auth, createUserProfileDocument } from './Firebase/firebase.util';
+import { addCollectionAndDocuments, auth, createUserProfileDocument } from './Firebase/firebase.util';
 import Header from './Components/Header/Header';
 import { connect } from 'react-redux';
 import { setCurrentUser } from './Redux/User/user.actions';
 import {createStructuredSelector} from 'reselect'; 
 import { selectCurrentUser } from './Redux/User/user.selector';
 import CheckoutPage from './Pages/Checkout/Checkout';
+import { selectCollectionsForPreview } from './Redux/shop/shop.selector';
 
 
 class App extends Component {
@@ -41,7 +42,7 @@ class App extends Component {
       }
       setCurrentUser(userAuth);
 
-    });
+});
    
   }
 
@@ -74,13 +75,14 @@ class App extends Component {
 
 //To get the current user of state
 const mapStateProps = createStructuredSelector({
-  currentUser : selectCurrentUser
+  currentUser : selectCurrentUser,
 })
 
 //using for set State of current user in Redux
 const mapDispatchProps = dispatch => ({
   setCurrentUser : user => dispatch(setCurrentUser(user))
 })
+
 
  
 export default connect(mapStateProps,mapDispatchProps)(App);

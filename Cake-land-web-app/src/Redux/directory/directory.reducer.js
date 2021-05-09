@@ -13,24 +13,24 @@ const INITIAL_STATE = {
             linkUrl:'shop/donuts'
         },
         {
-            title : "Pastry",
+            title : "Pastries",
             imageUrl : "https://c4.wallpaperflare.com/wallpaper/953/1020/893/food-dessert-pastry-hd-wallpaper-preview.jpg",
             id:3,
-            linkUrl:'shop/pastry'
+            linkUrl:'shop/pastries'
         },
         {
             title : "Dessert",
             imageUrl : "https://img5.goodfon.com/wallpaper/nbig/2/70/colorful-macarons-pechene-1.jpg",
             id:4,
             size:'large',
-            linkUrl:'shop/dessert'
+            linkUrl:'shop/desserts'
         },
         {
             title : "CupCakes",
             imageUrl : "https://cdn.wallpapersafari.com/98/68/k29Gha.jpg",
             id:5,
             size:'large',
-            linkUrl:'shop/cupcake'
+            linkUrl:'shop/cupcakes'
         },
         {
             title:'Muffins',
