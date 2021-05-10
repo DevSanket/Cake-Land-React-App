@@ -78,54 +78,7 @@ export const convertCollectionsSnapshotToMap = collections => {
 };
 
 
-// card: {id: "card_1IpFseSGbelzIZUmGIj6JnhU", object: "card", address_city: "Satara", address_country: "India", address_line1: "At Post Shivthar tal dist Satara, At Post Shivthar tal dist Satara", …}
-// cartItems: (2) [{…}, {…}]
-// client_ip: "103.246.41.88"
-// created: 1620579204
-// email: "rohitpawar030396@gmail.com"
-// id: "tok_1IpFseSGbelzIZUmeUmQ2e7o"
-// livemode: false
-// object: "token"
-// price: 1697
-// type: "card"
-// used: false
 
-// card:
-// address_city: "Satara"
-// address_country: "India"
-// address_line1: "At Post Shivthar tal dist Satara, At Post Shivthar tal dist Satara"
-// address_line1_check: "unchecked"
-// address_line2: null
-// address_state: "16"
-// address_zip: "415011"
-// address_zip_check: "unchecked"
-// brand: "Visa"
-// country: "US"
-// cvc_check: "unchecked"
-// dynamic_last4: null
-// exp_month: 1
-// exp_year: 2032
-// funding: "credit"
-// id: "card_1IpFtjSGbelzIZUmbaDV82BM"
-// last4: "4242"
-// name: "Rohit Pawar"
-// object: "card"
-// tokenization_method: null
-
-// cartItems: Array(2)
-// 0:
-// id: 1
-// imageUrl: "https://cdn.shopify.com/s/files/1/1060/3816/products/fantasy-chocolate-truffle-cake_900x.jpg?v=1594974395"
-// name: "Chocolate Truffule"
-// price: 499
-// quantity: 3
-// __proto__: Object
-// 1:
-// id: 18
-// imageUrl: "https://i2.wp.com/lifemadesimplebakes.com/wp-content/uploads/2017/05/Black-Forest-Cupcakes-4.jpg"
-// name: "Black Fores"
-// price: 200
-// quantity: 1
 
 //Store Order data in All Transaction Collection 
 export const AllTransactionData =async (DataObject) => {
@@ -137,7 +90,11 @@ export const AllTransactionData =async (DataObject) => {
       email:DataObject.email,
       method:DataObject.card.object,
       price:`${DataObject.price}₹`,
-      items:DataObject.cartItems
+      items:DataObject.cartItems,
+      address:DataObject.card.address_line1,
+      city:DataObject.card.address_city,
+      zipcode:DataObject.card.address_zip
+
     });
   } catch (error) {
     console.log('error creating user', error.message);
