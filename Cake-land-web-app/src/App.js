@@ -11,6 +11,7 @@ import { setCurrentUser } from './Redux/User/user.actions';
 import {createStructuredSelector} from 'reselect'; 
 import { selectCurrentUser } from './Redux/User/user.selector';
 import CheckoutPage from './Pages/Checkout/Checkout';
+import Orders from './Components/Orders/Orders';
 
 
 
@@ -41,7 +42,6 @@ class App extends Component {
         
       }
       setCurrentUser(userAuth);
-
 });
    
   }
@@ -66,6 +66,7 @@ class App extends Component {
             ) :(<SignInAndSignUp />)
           }/>
           <Route exact path="/checkout" component={CheckoutPage}/>
+          <Route exact path="/orders" component={Orders} />
           </Switch>
       </div>
       

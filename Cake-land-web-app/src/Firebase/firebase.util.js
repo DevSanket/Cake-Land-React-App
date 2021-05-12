@@ -15,6 +15,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
+
 //Storing user data in database
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
@@ -97,7 +98,30 @@ export const AllTransactionData =async (DataObject) => {
 
     });
   } catch (error) {
-    console.log('error creating user', error.message);
+    console.log('error adding Data to firebase', error.message);
+  }
+
+
+}
+
+//Creating function for storing order data in users data
+export const UserOrder = (DataObject) => {
+  var user = firebase.auth().currentUser;
+  const userid = user.uid;
+  const userRef = firestore.collection('users').doc(userid).collection('Orders');
+  try{
+    userRef.add({
+      username : DataObject.card.name,
+        email:DataObject.email,
+        method:DataObject.card.object,
+        price:`${DataObject.price}₹`,
+        items:DataObject.cartItems,
+        address:DataObject.card.address_line1,
+        city:DataObject.card.address_city,
+        zipcode:DataObject.card.address_zip
+    })
+  }catch(error){
+    console.log('error adding Data to firebase', error.message);
   }
 
 

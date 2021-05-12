@@ -4,7 +4,7 @@ import StripeCheckout from 'react-stripe-checkout';
 import { createStructuredSelector } from 'reselect';
 import { selectCartItems, selectCartTotal } from '../../Redux/Cart/cart.selector';
 import { connect } from 'react-redux';
-import { AllTransactionData } from '../../Firebase/firebase.util';
+import { AllTransactionData, UserOrder } from '../../Firebase/firebase.util';
 
 const StripeCheckoutButton = ({price,cartItems}) => {
     const priceForStripe = price * 100;
@@ -15,6 +15,8 @@ const StripeCheckoutButton = ({price,cartItems}) => {
         console.log(token);
         //For Store data in firebase
         AllTransactionData(token);
+        UserOrder(token);
+        
 
         
         alert('Order successfull');
