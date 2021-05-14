@@ -1,14 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CollectionItem from '../Collection-item/Collection-item';
 import './Collection-Preview.scss';
 
 
-const CollectionPreview = ({title,items}) => {
+const CollectionPreview = ({title,items,routeName}) => {
+    // console.log(items);
+    
     return ( 
         <div className="collection-preview">
-            <h1 className="title">
+            <Link className="title" to={`shop/${routeName}`} >
                 {title.toUpperCase()}
-            </h1>
+            </Link>
             <div className="preview">
                 {
                     items.filter((index,idx) => idx < 4).map((item) => (

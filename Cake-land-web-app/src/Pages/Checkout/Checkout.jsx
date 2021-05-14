@@ -41,7 +41,10 @@ const CheckoutPage = ({cartItems,total}) => (
             *Please use the following test Creadit card for payments* <br/>
             4242 4242 4242 4242 - Exp: 01/32 - CVV: 123
         </div>
-        <StripeCheckoutButton price={total}/>
+        {   
+            // console.log(cartItems.length)
+            cartItems.length > 0 ? <StripeCheckoutButton price={total}/> : <h3>Add Items</h3>
+        }
     </div>
 )
 

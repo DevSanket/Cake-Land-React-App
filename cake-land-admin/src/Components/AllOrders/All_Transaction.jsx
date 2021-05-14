@@ -16,7 +16,10 @@ const AllTransactions = () => {
                     price:doc.data().price,
                     email:doc.data().email,
                     address:doc.data().address,
-                    items:doc.data().items})))
+                    items:doc.data().items,
+                    timestamp:doc.data().timestamp
+                })))
+
         })
     },[])
 
@@ -31,6 +34,8 @@ const AllTransactions = () => {
       <th scope="col">Address</th>
       <th scope="col">Price</th>
       <th scope="col">Items</th>
+      <th scope="col">Time</th>
+      <th scope="col"></th>
 
     </tr>
   </thead>
@@ -53,6 +58,10 @@ const AllTransactions = () => {
                         }
                         
                     </td>
+                    <td>{`${order.timestamp.toDate()}`}</td>
+                    <td><button className="btn btn-danger"
+                    onClick={(e) => db.collection('all_transaction').doc(order.id).delete()}
+                    >Delete</button></td>
                  </tr>
                   )
               }

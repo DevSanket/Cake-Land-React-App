@@ -94,8 +94,8 @@ export const AllTransactionData =async (DataObject) => {
       items:DataObject.cartItems,
       address:DataObject.card.address_line1,
       city:DataObject.card.address_city,
-      zipcode:DataObject.card.address_zip
-
+      zipcode:DataObject.card.address_zip,
+      timestamp:firebase.firestore.FieldValue.serverTimestamp()
     });
   } catch (error) {
     console.log('error adding Data to firebase', error.message);
@@ -118,7 +118,8 @@ export const UserOrder = (DataObject) => {
         items:DataObject.cartItems,
         address:DataObject.card.address_line1,
         city:DataObject.card.address_city,
-        zipcode:DataObject.card.address_zip
+        zipcode:DataObject.card.address_zip,
+        timestamp:firebase.firestore.FieldValue.serverTimestamp()
     })
   }catch(error){
     console.log('error adding Data to firebase', error.message);

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { db } from '../firebase.utils';
+import firebase from 'firebase';
 
 const ProductDelete = () => {
 
@@ -15,7 +16,7 @@ const ProductDelete = () => {
         })
     },[])
 
-    console.log(products);
+    // console.log(products);
 
 
     return ( 
@@ -40,6 +41,13 @@ const ProductDelete = () => {
                     <td>{item.name}</td>
                     <td>{item.price}</td>
                     <td><button className="btn btn-danger"
+
+                    onClick={() => {
+                        // console.log(product.id);
+                        // db.doc(`collections/${product.id}/items`)
+                        
+                    }}
+
                     >Delete</button></td>
                  </tr>
               ))
