@@ -14,7 +14,7 @@ const StripeCheckoutButton = ({price,cartItems,ResetItems}) => {
     const onToken = token => {
         token.price = price
         token.cartItems = cartItems
-        console.log(token);
+        // console.log(token);
         var user = firebase.auth().currentUser;
         if(user){
             AllTransactionData(token);
@@ -43,11 +43,14 @@ const StripeCheckoutButton = ({price,cartItems,ResetItems}) => {
      );
 }
 
+
+// Exact value
 const mapStateToProps = createStructuredSelector({
     cartItems : selectCartItems,
     total:selectCartTotal
 });
 
+//change value
 const mapDispatchToProps = dispatch => ({
     ResetItems : item => dispatch(ResetItems(item))
   })

@@ -19,7 +19,7 @@ firebase.initializeApp(firebaseConfig);
 //Storing user data in database
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
-
+   
   const userRef = firestore.doc(`users/${userAuth.uid}`);
 
   const snapShot = await userRef.get();
@@ -61,6 +61,7 @@ export const addCollectionAndDocuments = async (
 
 //Converting our snapshot into a perfect data for showing in  shop data
 export const convertCollectionsSnapshotToMap = collections => {
+  // [{ title item},{},{}]
   const transformedCollection = collections.docs.map(doc => {
     const { title, items } = doc.data();
 
@@ -72,7 +73,8 @@ export const convertCollectionsSnapshotToMap = collections => {
     };
   });
 
-  return transformedCollection.reduce((accumulator, collection) => {
+  // [] [] [] = []
+    return transformedCollection.reduce((accumulator, collection) => {
     accumulator[collection.title.toLowerCase()] = collection;
     return accumulator;
   }, {});

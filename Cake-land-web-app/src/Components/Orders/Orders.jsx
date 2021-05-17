@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { firestore } from '../../Firebase/firebase.util';
 import firebase from 'firebase';
 import './Orders.css';
