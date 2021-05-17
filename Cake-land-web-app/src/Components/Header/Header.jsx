@@ -10,12 +10,14 @@ import {createStructuredSelector} from 'reselect';
 import { selectCurrentUser } from '../../Redux/User/user.selector';
 import { selectCartHidden } from '../../Redux/Cart/cart.selector';
 
+
 const Header = ({currentUser,hidden}) => {
     return ( 
         <div className="header">
             <Link to='/' className="logo-container">
                 <Logo className="logo"/>
             </Link>
+
             <div className="options">
                 {
                     currentUser ? <Link className="option">{`Hello, ${currentUser.displayName}..`}</Link> : <Link to="/" className="option">HOME</Link>
@@ -41,6 +43,8 @@ const Header = ({currentUser,hidden}) => {
      );
 }
  
+
+
 const mapStateToProps = createStructuredSelector({
     currentUser:selectCurrentUser,
     hidden:selectCartHidden
