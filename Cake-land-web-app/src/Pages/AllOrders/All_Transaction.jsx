@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { db } from '../firebase.utils';
+import { firestore } from '../../Firebase/firebase.util';
+
 
 
 const AllTransactions = () => {
@@ -7,7 +8,7 @@ const AllTransactions = () => {
     const [orders,setOrders] = useState([]);
 
     useEffect(() => {
-        db.collection('all_transaction').onSnapshot(snapshot => {
+        firestore.collection('all_transaction').onSnapshot(snapshot => {
             setOrders(snapshot.docs.map(
                 doc => (
                     {
@@ -60,7 +61,7 @@ const AllTransactions = () => {
                     </td>
                     <td>{`${order.timestamp.toDate()}`}</td>
                     <td><button className="btn btn-danger"
-                    onClick={(e) => db.collection('all_transaction').doc(order.id).delete()}
+                    onClick={(e) => firestore.collection('all_transaction').doc(order.id).delete()}
                     >Delete</button></td>
                  </tr>
                   )

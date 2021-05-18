@@ -12,6 +12,7 @@ import {createStructuredSelector} from 'reselect';
 import { selectCurrentUser } from './Redux/User/user.selector';
 import CheckoutPage from './Pages/Checkout/Checkout';
 import Orders from './Components/Orders/Orders';
+import AllTransactions from './Pages/AllOrders/All_Transaction';
 
 
 
@@ -65,6 +66,7 @@ class App extends Component {
             <Redirect to="/"/>
             ) :(<SignInAndSignUp />)
           }/>
+          <Route exact path="/all_transaction" component={AllTransactions} />
           <Route exact path="/checkout" component={CheckoutPage}/>
           <Route exact path="/orders" component={Orders} />
           </Switch>
