@@ -13,6 +13,7 @@ import { selectCurrentUser } from './Redux/User/user.selector';
 import CheckoutPage from './Pages/Checkout/Checkout';
 import Orders from './Components/Orders/Orders';
 import AllTransactions from './Pages/AllOrders/All_Transaction';
+import Aboutus from './Pages/About Us/about';
 
 
 
@@ -69,6 +70,7 @@ class App extends Component {
           <Route exact path="/all_transaction" component={AllTransactions} />
           <Route exact path="/checkout" component={CheckoutPage}/>
           <Route exact path="/orders" component={Orders} />
+          <Route exact path="/about" component={Aboutus} />
           </Switch>
       </div>
       
