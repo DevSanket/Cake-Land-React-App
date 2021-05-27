@@ -33,7 +33,10 @@ class SignUp extends Component {
         email,
         password
       );
+
       await createUserProfileDocument(user, { displayName });
+
+      auth.signOut();
 
       this.setState({
         displayName: "",
@@ -41,8 +44,10 @@ class SignUp extends Component {
         password: "",
         confirmPassword: "",
       });
+
+      alert("Sign Up Sucessfull, Please Sign In To Continue.");
     } catch (error) {
-      console.error(error);
+      alert(error.message);
     }
   };
 

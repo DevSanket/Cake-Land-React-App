@@ -18,9 +18,9 @@ class SignIn extends Component {
     const { email , password } = this.state;
     try{
       await auth.signInWithEmailAndPassword(email,password);
-      this.state({email:'',password:''});
+      this.setState({email:'',password:''});
     }catch(error){
-      console.log(error);
+      alert("Enter valid Details?")
     }
 
   };
