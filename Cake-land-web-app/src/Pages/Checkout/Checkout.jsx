@@ -30,7 +30,7 @@ const CheckoutPage = ({cartItems,total}) => (
         {
             cartItems.map(cartItem => 
                 
-                <CheckoutItem cartItem={cartItem} />
+                <CheckoutItem key ={ cartItem.id } cartItem={cartItem} />
 
                 )
         }

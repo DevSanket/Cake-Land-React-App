@@ -41,8 +41,7 @@ const Orders = () => {
     //                 items:doc.data().items})))
     //     })
     // }) 
-     
-    console.log(orders);
+
     return ( 
         <div className="orders"   >
 
